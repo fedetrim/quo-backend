@@ -1,7 +1,7 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
-struct Quote: SQLiteModel {
+struct Quote: MySQLModel {
     var id: Int?
     var message: String
     var author: String?
