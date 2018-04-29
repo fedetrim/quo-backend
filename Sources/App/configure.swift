@@ -24,7 +24,7 @@ public func configure(
     services.register(middlewares)
     
     // Configure a MySQL database
-    let mySQL = MySQLDatabase(config: MySQLDatabaseConfig(username: "root", password: "test", database: "quo"))
+    let mySQL = MySQLDatabase(config: MySQLDatabaseConfig.root(database: "quo"))
 
     /// Register the configured MySQL database to the database config.
     var databases = DatabasesConfig()
