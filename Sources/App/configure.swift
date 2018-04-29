@@ -24,10 +24,20 @@ public func configure(
     services.register(middlewares)
     
     // Configure a MySQL database
-    let mySQL = MySQLDatabase(config: MySQLDatabaseConfig(hostname: "$DATABASE_HOSTNAME",
-                                                          username: "$DATABASE_USER",
-                                                          password: "$DATABASE_PASSWORD",
-                                                          database: "$DATABASE_DB"))
+    let mySQL: MySQLDatabase = {
+        let hostname = Environment.get("DATABASE_HOSTNAME") ?? "localhost"
+        let username = Environment.get("DATABASE_USER") ?? "root"
+        let password = Environment.get("DATABASE_PASSWORD") ?? "root"
+        let database = Environment.get("DATABASE_DB") ?? "quo"
+        
+        let config = MySQLDatabaseConfig(hostname: hostname,
+//                                         port: <#T##Int#>,
+                                         username: username,
+                                         password: password,
+                                         database: database)
+        
+        return MySQLDatabase(config: config)
+    }()
 
     /// Register the configured MySQL database to the database config.
     var databases = DatabasesConfig()
