@@ -9,6 +9,6 @@ public func routes(_ router: Router) throws {
     let quoteController = QuoteController()
     router.get("quotes", use: quoteController.index)
     router.post("quotes", use: quoteController.create)
-//    router.delete("todos", Todo.parameter, use: todoController.delete)
+//    router.delete("quotes", Quote.parameter, use: quoteController.delete)
     
 }
