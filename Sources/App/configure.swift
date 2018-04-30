@@ -31,7 +31,6 @@ public func configure(
         let database = Environment.get("DATABASE_DB") ?? "quo"
         
         let config = MySQLDatabaseConfig(hostname: hostname,
-//                                         port: <#T##Int#>,
                                          username: username,
                                          password: password,
                                          database: database)

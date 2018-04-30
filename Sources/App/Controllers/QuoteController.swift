@@ -4,7 +4,7 @@ import Vapor
 final class QuoteController {
     /// Returns a list of all `Quote`s.
     func index(_ req: Request) throws -> Future<[Quote]> {
-        return Quote.query(on: req).all()
+        return try Quote.query(on: req).sort(\Quote.creationDate, .descending).all()
     }
 
     /// Saves a decoded `Quote` to the database.
