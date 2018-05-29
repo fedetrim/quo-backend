@@ -5,10 +5,10 @@ let package = Package(
     name: "QuoBackend",
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc.2"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0"),
 
         // 🖋🐬 Swift ORM (queries, models, relations, etc) built on MySQL.
-        .package(url: "https://github.com/vapor/fluent-mysql.git", from: "3.0.0-rc.2")
+        .package(url: "https://github.com/vapor/fluent-mysql.git", from: "3.0.0-rc.2.5")
     ],
     targets: [
         .target(name: "App", dependencies: ["FluentMySQL", "Vapor"]),
@@ -16,4 +16,3 @@ let package = Package(
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]
 )
-

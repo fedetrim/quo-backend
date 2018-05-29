@@ -19,7 +19,6 @@ public func configure(
 
     /// Register middleware
     var middlewares = MiddlewareConfig()
-    middlewares.use(DateMiddleware.self) // Adds `Date` header to responses
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
     
